@@ -1,0 +1,8 @@
+windows:
+Client ID: 3
+Client secret: e5wcKQq9rOWmIa2MyqqdTU3sGBnl3qi31wqnQS72
+
+ubuntu:
+Client ID: 1
+Client secret: K4EnkNkyrxBTOfVUXIuCaByMKDODIvEXvzgMbtwz
+
