@@ -11,7 +11,7 @@
 	"dingo/api": "1.0.*@dev",
 	"laravelcollective/html": "5.3.*",
 	"infyomlabs/laravel-generator": "5.3.x-dev",
-	"infyomlabs/core-templates": "5.3.x-dev",
+    "infyomlabs/adminlte-templates": "5.3.x-dev",
 	"infyomlabs/swagger-generator": "dev-master",
 	"jlapp/swaggervel": "dev-master",
         "symfony/psr-http-message-bridge": "0.2",
@@ -25,7 +25,8 @@
         "prettus/l5-repository": "^2.6",
 		"douyasi/laravel-editor-md": "dev-master",
         "tymon/jwt-auth": "0.5.*",
-        "toplan/phpsms": "~1.6.0"
+        "toplan/phpsms": "~1.6.0",
+		"folklore/graphql": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

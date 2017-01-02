@@ -53,8 +53,12 @@ class RedisController extends Controller
 		// Redis::set('username','liner.xie');
 		// dump(Redis::get('username'));
 		// dump(Redis::get('user:user_id:1:passwd'));
-		// $data = Redis::lrange('redis_model', 1, 20);
-		$data = Redis::command('hgetall',['redis_model:a:1']);
-		dump($data);
+		$data = Redis::lrange('redis_model', 1, 20);
+		foreach ($data as $k => $v) {
+			$arr = Redis::command('hgetall',['redis_model:a:'.$v]);
+			echo $arr['id'].'=='.$arr['name'].'==='.$arr['address']."<br />";
+		}
+		// $data = Redis::command('hgetall',['redis_model:a:1']);
+		// dump($data);
 	}
 }

@@ -10,6 +10,7 @@ class User extends Authenticatable
 {
     //use Notifiable;
 	use HasApiTokens, Notifiable;
+    const STATUS_NORMAL = 1;
 
     /**
      * The attributes that are mass assignable.
@@ -31,5 +32,16 @@ class User extends Authenticatable
 
     public function posts(){
         return $this->hasMany('App\Post');
+    }
+    //场景
+    public function scopeNormal($q){
+        return $q->where('status',self::STATUS_NORMAL);
+    }
+    // 通过 phone 查找没有在禁用状态下的用户：
+    public static function findForPassport($phone)
+    {
+        return \App\User::normal()
+            ->where('phone', $phone)
+            ->first();
     }
 }

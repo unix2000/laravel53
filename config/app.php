@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'zh-CN',
+    'locale' => 'zh_CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -183,8 +183,6 @@ return [
 		Collective\Html\HtmlServiceProvider::class,
 		Laracasts\Flash\FlashServiceProvider::class,
 		Prettus\Repository\Providers\RepositoryServiceProvider::class,
-		// \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
-		// \InfyOm\CoreTemplates\CoreTemplatesServiceProvider::class,
 		App\Providers\DbServiceProvider::class,
         Encore\Admin\Providers\AdminServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
@@ -193,6 +191,9 @@ return [
 		Douyasi\Editor\EditorServiceProvider::class,
         Dingo\Api\Provider\LaravelServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+		Folklore\GraphQL\ServiceProvider::class,
+        \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
+        \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class, 
     ],
 
     /*
@@ -247,7 +248,8 @@ return [
 
         //jwt
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
-        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+		'GraphQL' => Folklore\GraphQL\Support\Facades\GraphQL::class,
     ],
 
 ];

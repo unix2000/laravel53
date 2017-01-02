@@ -4,6 +4,7 @@
 	<link href="/static/zui/lib/datatable/zui.datatable.min.css" rel="stylesheet">
 @stop
 @section('content')
+
 	<div class="row">
 		<div class="col-md-3 col-md-offset-2">
 			<ul class="tree tree-folders" data-ride="tree" id="myTree"></ul>
@@ -15,6 +16,7 @@
 @stop
 
 @section('script')
+	<script src="/js/hello.js"></script>
 	<script src="/static/zui/lib/datatable/zui.datatable.min.js"></script>
 	<script>
 		$('div.datatable').datatable({

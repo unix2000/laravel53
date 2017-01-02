@@ -17,13 +17,13 @@ use GuzzleHttp\json_encode;
 
 //闭包无法缓存路由 php artisan route:cache
 Route::resource('post','PostController');
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@welcome');
 //request
 Route::get('/get',function(Request $req){
 	dump($req->isMethod('get'));
