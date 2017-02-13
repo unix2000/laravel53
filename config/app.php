@@ -194,6 +194,8 @@ return [
 		Folklore\GraphQL\ServiceProvider::class,
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class, 
+        App\Providers\AnnotationsServiceProvider::class,
+        //Laravoole\LaravooleServiceProvider::class,
     ],
 
     /*
@@ -245,7 +247,7 @@ return [
 		'Flash'     => Laracasts\Flash\Flash::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'Charts' => ConsoleTVs\Charts\Charts::class,
-
+		
         //jwt
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,

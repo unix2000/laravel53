@@ -6,3 +6,7 @@ Homestead.json
 Homestead.yaml
 .env
 npm-debug.log
+.project
+/.settings
+.buildpath
+/nbproject

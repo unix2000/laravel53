@@ -67,12 +67,25 @@ Route::get('/db/fractal','DbController@fractal');
 Route::get('/redis','RedisController@index');
 Route::get('/mongo','MongoController@index');
 Route::get('/form','FormController@index');
+Route::post('/form', 'FormController@store');
+Route::get('/form/valid','FormController@valid');
+Route::post('validForm', 'FormController@validForm');
+Route::get('/form/validator','FormController@validator');
+Route::post('/form/validatorForm','FormController@validatorForm');
 Route::get('/test','TestController@index');
 Route::get('/test/de-token','TestController@detoken');
 Route::get('/di','DiController@index');
 Route::get('/session','SessionController@index');
 Route::get('/ui','UiController@index');
+Route::get('/ui/uikit','UiController@uikit');
+Route::get('/ui/dtgrid','UiController@dtGrid');
+Route::any('/ui/get-datas','UiController@getDatas');
+Route::get('/ui/ztree','UiController@ztree');
+Route::get('/ui/fancytree','UiController@fancytree');
+Route::get('/ajax-load-more','UiController@ajaxLoadMore');
 Route::get('/repo','RepositoryController@index');
+Route::get('/bui','BuiController@index');
+Route::get('/bui/tree-select','BuiController@treeSelect');
 
 //中间件测试
 Route::any('one',['uses' => 'MiddleController@one']);

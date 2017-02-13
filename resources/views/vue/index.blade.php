@@ -23,6 +23,7 @@
 @stop
 
 @section('script')
+<script type="text/javascript">
 	new Vue({
 		el:'#app',
 		data:{
@@ -55,4 +56,5 @@
 			]
 		}
 	});
+</script>
 @stop

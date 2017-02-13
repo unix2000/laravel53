@@ -17,82 +17,82 @@ use App\Transformer\ItemsTransformer;
 class DbController extends Controller
 {
     protected $db;
-		public function __construct(DbRepositoryInterface $db)
+	public function __construct(DbRepositoryInterface $db)
     {
     	$this->db = $db;
     }
     public function fractal()
     {
-			//fractal api data
-			$manager = new Manager();
-			$manager->setSerializer(new DataArraySerializer());
-			
-			//单条记录为Item,多条为Collection
-			$data = Items::find(1);
-			$resource = new Item($data, new ItemsTransformer());
+		//fractal api data
+		$manager = new Manager();
+		$manager->setSerializer(new DataArraySerializer());
+		
+		//单条记录为Item,多条为Collection
+		$data = Items::find(1);
+		$resource = new Item($data, new ItemsTransformer());
 
-			// $data = Items::limit(5)->get();
-			// $resource = new Collection($data, new ItemsTransformer());
+		// $data = Items::limit(5)->get();
+		// $resource = new Collection($data, new ItemsTransformer());
 
-			$manager->parseIncludes('characters');
-			// $api_data = $manager->createData($resource)->toArray();
-			$api_data = $manager->createData($resource)->toJson();
-			dump($api_data);
-			//dump($manager);
-			//dump($data);
+		$manager->parseIncludes('characters');
+		// $api_data = $manager->createData($resource)->toArray();
+		$api_data = $manager->createData($resource)->toJson();
+		dump($api_data);
+		//dump($manager);
+		//dump($data);
 
-			//正常 //array为参数
-			// $fractal = new Manager();
-			// $books = [
-			// 	[
-			// 		'id' => '1',
-			// 		'title' => 'Hogfather',
-			// 		'yr' => '1998',
-			// 		'author_name' => 'Philip K Dick',
-			// 		'author_email' => 'philip@example.org',
-			// 	],
-			// 	[
-			// 		'id' => '2',
-			// 		'title' => 'Game Of Kill Everyone',
-			// 		'yr' => '2014',
-			// 		'author_name' => 'George R. R. Satan',
-			// 		'author_email' => 'george@example.org',
-			// 	]
-			// ];
+		//正常 //array为参数
+		// $fractal = new Manager();
+		// $books = [
+		// 	[
+		// 		'id' => '1',
+		// 		'title' => 'Hogfather',
+		// 		'yr' => '1998',
+		// 		'author_name' => 'Philip K Dick',
+		// 		'author_email' => 'philip@example.org',
+		// 	],
+		// 	[
+		// 		'id' => '2',
+		// 		'title' => 'Game Of Kill Everyone',
+		// 		'yr' => '2014',
+		// 		'author_name' => 'George R. R. Satan',
+		// 		'author_email' => 'george@example.org',
+		// 	]
+		// ];
 
-			// $resource = new Collection($books, function(array $book) {
-			//     return [
-			//         'id'      => (int) $book['id'],
-			//         'title'   => $book['title'],
-			//         'year'    => (int) $book['yr'],
-			//         'author'  => [
-			//         	'name'  => $book['author_name'],
-			//         	'email' => $book['author_email'],
-			//         ],
-			//         'links'   => [
-			//             [
-			//                 'rel' => 'self',
-			//                 'uri' => '/books/'.$book['id'],
-			//             ]
-			//         ]
-			//     ];
-			// });
+		// $resource = new Collection($books, function(array $book) {
+		//     return [
+		//         'id'      => (int) $book['id'],
+		//         'title'   => $book['title'],
+		//         'year'    => (int) $book['yr'],
+		//         'author'  => [
+		//         	'name'  => $book['author_name'],
+		//         	'email' => $book['author_email'],
+		//         ],
+		//         'links'   => [
+		//             [
+		//                 'rel' => 'self',
+		//                 'uri' => '/books/'.$book['id'],
+		//             ]
+		//         ]
+		//     ];
+		// });
 
-			// Turn that into a structured array (handy for XML views or auto-YAML converting)
-			// $array = $fractal->createData($resource)->toArray();
-			// Turn all of that into a JSON string
-			// echo $fractal->createData($resource)->toJson();	
+		// Turn that into a structured array (handy for XML views or auto-YAML converting)
+		// $array = $fractal->createData($resource)->toArray();
+		// Turn all of that into a JSON string
+		// echo $fractal->createData($resource)->toJson();	
 
-			//参数为item 如Items::find(1)
-			//new Fractal\Resource\Item($book, function(Book $book)
-			
-			//参数为collection 如Items::all()
-			//$resource = new Fractal\Resource\Collection($books, function(Book $book) {	
-		}
+		//参数为item 如Items::find(1)
+		//new Fractal\Resource\Item($book, function(Book $book)
+		
+		//参数为collection 如Items::all()
+		//$resource = new Fractal\Resource\Collection($books, function(Book $book) {	
+	}
     public function zui(){
     	return view('db.zui');
     }
-		public function test(){
+	public function test(){
 		// dump($this->db->find(1));
 		//dump(Items::findOrfail(1));
 		//一对一
@@ -184,7 +184,7 @@ class DbController extends Controller
 	       	->where('types_id', '<>', 1)
 	       	->groupBy('email')
 	       	->get();
-		dump($data);
+		// dump($data);
 		// DB::beginTransaction();
 		// DB::rollBack();
 		// DB::commit();
@@ -214,6 +214,10 @@ class DbController extends Controller
 
 		//page
 		// dump($req->session()->all());
+	    // $data = DB::table('items')->paginate(12);
+       	// return view('db.index', ['data' => $data]);
+	    $data = Items::offset(10)->limit(10)->get()->toArray();
+	    dump($data);
 		// return view('db.index')->with('data',Items::paginate(9));
 
 		// $data = \App\User::findForPassport("13900000000");

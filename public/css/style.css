@@ -1,7 +1,12 @@
 body{
-    padding-top:66px;
     font-size: 14px;
     font-family: "微软雅黑";
+}
+/*自定义部分**/
+.cus-navbar {
+    padding: 0px 0;
+    border: none;
+    background: #8666B8;
 }
 table.floatThead-table {
     border-top: none;
@@ -31,11 +36,11 @@ table.floated {
 .Validform_error,input.error,select.error{background-color:#fbe2e2; border-color:#c66161; color:#c00}
 .Validform_wrong,.Validform_right,.Validform_warning{display:inline-block;height:20px;font-size:12px;vertical-align:middle; padding-left:25px}
 /*错误*/
-.Validform_wrong{background:url(../images/validform/iconpic-error.png) no-repeat 0 center;color:#ef392b}
+.Validform_wrong{background:url(../assets/images/validform/iconpic-error.png) no-repeat 0 center;color:#ef392b}
 /*正确*/
-.Validform_right{background:url(../images/validform/iconpic-right.png) no-repeat 0 center}
+.Validform_right{background:url(../assets/images/validform/iconpic-right.png) no-repeat 0 center}
 /*警告*/
-.Validform_warning{background:url(../images/validform/iconpic-warning.png) no-repeat 0 center;color:#777}
+.Validform_warning{background:url(../assets/images/validform/iconpic-warning.png) no-repeat 0 center;color:#777}
 label.error{ position: absolute; right: 18px; top: 5px;color:#ef392b; font-size: 12px}
 /*密码等级*/
 .passwordStrength b{font-weight:400}
