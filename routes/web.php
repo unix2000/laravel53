@@ -86,6 +86,15 @@ Route::get('/ajax-load-more','UiController@ajaxLoadMore');
 Route::get('/repo','RepositoryController@index');
 Route::get('/bui','BuiController@index');
 Route::get('/bui/tree-select','BuiController@treeSelect');
+Route::get('/easyui/grid','EasyController@grid');
+Route::get('/easyui/data','EasyController@generateData');
+Route::get('/easyui/tree','EasyController@tree');
+Route::get('/easyui/treeJson','EasyController@treeJson');
+Route::get('/easyui/tab','EasyController@tab');
+Route::get('/easyui/welcome','EasyController@welcome');
+Route::get('/easyui/panel','EasyController@panel');
+Route::get('/easyui/accordion','EasyController@accordion');
+Route::get('/easyui/bx','EasyController@bao');
 
 //中间件测试
 Route::any('one',['uses' => 'MiddleController@one']);
