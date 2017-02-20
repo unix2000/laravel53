@@ -26,5 +26,8 @@ class ResController extends Controller
 
     	//session
     	// dump(Session::all());
+		//$config = \Config('database.connections.mysql');
+		$config = \Config::get('database');
+		dump($config);
     }
 }

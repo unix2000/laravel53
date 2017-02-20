@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="_token" content="{{ csrf_token() }}">
-    <title>uikit system</title>
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>a web based erp system</title>
     {!! Html::style('static/uikit/css/uikit.almost-flat.min.css') !!}
 	{!! Html::style('css/style.css') !!}
     @yield('css')
@@ -53,6 +53,27 @@
 <div class="uk-container uk-container-center">
     @yield('content')
 </div>
+
+<div class="footer" data-uk-grid-margin>
+    <div class="uk-container uk-container-center">
+        <h5 class="uk-text-center">
+            <a href="#">首页</a>
+            | <a target="_blank" href="#">xxxx</a>
+			| <a target="_blank" href="#">xxxx</a>
+            | <a href="#" target="_blank">xxx</a>
+            | <a href="#" target="_blank">xxxx</a>
+            | <a href="#" target="_blank">xxxx</a>
+            | <a href="#" target="_blank">xxxx</a>         
+			<p class="uk-margin-small"/>
+				xxx版权所有    
+			</p>
+            <p class="uk-hidden-small">
+                备案
+            </p>
+        </h5>
+    </div>
+</div>
+
 {!! Html::script('static/jquery.min.js') !!}
 {!! Html::script('static/uikit/js/uikit.min.js') !!}
 @yield('script')

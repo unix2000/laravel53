@@ -196,6 +196,7 @@ return [
         \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class, 
         App\Providers\AnnotationsServiceProvider::class,
         //Laravoole\LaravooleServiceProvider::class,
+		Laratrust\LaratrustServiceProvider::class,
     ],
 
     /*
@@ -252,6 +253,7 @@ return [
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 		'GraphQL' => Folklore\GraphQL\Support\Facades\GraphQL::class,
+		'Laratrust'   => Laratrust\LaratrustFacade::class,
     ],
 
 ];

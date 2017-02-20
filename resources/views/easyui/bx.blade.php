@@ -11,6 +11,7 @@
 			<h1>票据报销</h1>
 			<button class="uk-button uk-button-primary" onclick="addRow();">添加</button>
 			<button class="uk-button uk-button-primary" onclick="delRow();">删除</button>
+			<button class="uk-button uk-button-primary" onclick="getAllRows();">获取数据</button>
 			<div class="uk-form-row">
 				<table id="grid"></table>
 			</div>
@@ -36,14 +37,14 @@
 				{
 					field:'bxtype',
 					title:'报销内容',
-					width:160,
+					width:180,
 					editor:{
 						type:'combotree',
 						options: {
 							required:true,
 							data:{!! $json !!},
-							valueField:'id',  
-							textField:'text'
+							valueField:'id'  
+							//textField:'text'
 						}
 					}
 				},
@@ -54,9 +55,41 @@
 			]
 		]
 	});
+	
 	grid.datagrid('enableCellEditing').datagrid('gotoCell', {
 		index: 0,
 		field: 'bxtype'
+	});
+	
+	grid.datagrid({
+		onCellEdit: function(index,field,value) {
+			//onCellEdit事件优先于enableCellEditing
+			//console.log(index,field,value);
+			//编辑前触发,value为初始值(空置为undefined) 比如combotree还未触发
+			alert('onCellEdit');
+			if (field == 'bxtype') {
+				alert('bxtype');
+				//alert(value);
+
+			}
+		},
+		onAfterEdit: function(index,row,changes) {
+			//编辑完cell后触发
+			alert('onAfterEdit');
+			//var ed = $(this).datagrid('getEditor', {index:index,field:'bxtype'});
+			//alert(ed); //null
+
+			//$(ed.target).combotree('setValue', '设置值');
+		},
+		onClickCell: function(index,field,value){
+			//onClickCell触发后onCellEdit,onAfterEdit全部失效
+			//beginEdit整行编辑
+			$(this).datagrid('beginEdit', index);
+			console.log(index,field,value);
+
+			var ed = $(this).datagrid('getEditor', {index:index,field:field});
+			$(ed.target).focus();
+		}
 	});
 	function addRow() {
 		grid.datagrid('appendRow',{
@@ -71,6 +104,9 @@
 			//reload解决index重新排序问题
 			grid.datagrid('reload'); 
 		}
+	}
+	function getAllRows() {
+		console.log(grid.datagrid('getData'));
 	}
 </script>
 @endsection

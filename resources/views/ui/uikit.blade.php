@@ -322,5 +322,9 @@
 @endsection
 
 @section('script')
+	<script src="{{ asset('static/jquery.sticky.js') }}"></script>
 	<script src="{{ asset('static/uikit/js/components/accordion.min.js') }}"></script>
+	<script>
+		$("#navbar").sticky({ topSpacing: 0, center:true, className:"hey" });
+	</script>
 @endsection

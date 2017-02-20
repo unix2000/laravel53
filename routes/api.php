@@ -12,13 +12,13 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+// api/user
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
 
-// Route::resource('items', 'ItemsAPIController');
+Route::resource('items', 'ItemsAPIController');
 
 //dingo api router
 $api = app('Dingo\Api\Routing\Router');
@@ -40,6 +40,7 @@ $api->version('v1', function ($api) {
 });
 
 // 私有接口
+//http://laravel53.dev/api/me?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUsImlzcyI6Imh0dHA6XC9cL2xhcmF2ZWw1My5kZXZcL2FwaVwvYXV0aFwvdG9rZW4iLCJpYXQiOjE0ODc1MDk4MDAsImV4cCI6MTQ4NzUxMzQwMCwibmJmIjoxNDg3NTA5ODAwLCJqdGkiOiJlZmJjOTU5Y2I3YmU0MWI1ODIxYjU2YjRhZDZmZmViMiJ9.x_HJiOddCyU7PE-egDaLg3wG53-kiRYY0tLxYmozIUA
 $api->version('v1', ['protected' => true], function ($api) {
     // 更新用户 token
     $api->get('upToken', 'App\Api\Controllers\AuthController@upToken');

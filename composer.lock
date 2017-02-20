@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1065996b31b78efbbd69146d6c95aa3",
+    "content-hash": "487e570a872a4bb9d08a7d76f25c841b",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -569,12 +569,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/z-song/laravel-admin.git",
-                "reference": "5eb783cd3db858e4b68264a8144644bf4ab7c1e1"
+                "reference": "e6e57c538201d6d4aafad566033e013491f9706c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/z-song/laravel-admin/5eb783cd3db858e4b68264a8144644bf4ab7c1e1.zip",
-                "reference": "5eb783cd3db858e4b68264a8144644bf4ab7c1e1",
+                "url": "https://packagist.phpcomposer.com/files/z-song/laravel-admin/e6e57c538201d6d4aafad566033e013491f9706c.zip",
+                "reference": "e6e57c538201d6d4aafad566033e013491f9706c",
                 "shasum": ""
             },
             "require": {
@@ -621,7 +621,7 @@
                 "grid",
                 "laravel"
             ],
-            "time": "2017-02-13 10:47:02"
+            "time": "2017-02-17 09:53:32"
         },
         {
             "name": "firebase/php-jwt",
@@ -1188,16 +1188,16 @@
         },
         {
             "name": "jenssegers/mongodb",
-            "version": "v3.1.3",
+            "version": "v3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jenssegers/laravel-mongodb.git",
-                "reference": "02ca494f0a6e6c2d0dcca9edd36ae5f377205ac3"
+                "reference": "e3bea54120cfb45ca6dadffad11ecaed6952e063"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/jenssegers/laravel-mongodb/02ca494f0a6e6c2d0dcca9edd36ae5f377205ac3.zip",
-                "reference": "02ca494f0a6e6c2d0dcca9edd36ae5f377205ac3",
+                "url": "https://packagist.phpcomposer.com/files/jenssegers/laravel-mongodb/e3bea54120cfb45ca6dadffad11ecaed6952e063.zip",
+                "reference": "e3bea54120cfb45ca6dadffad11ecaed6952e063",
                 "shasum": ""
             },
             "require": {
@@ -1211,7 +1211,7 @@
                 "mockery/mockery": "^0.9",
                 "orchestra/testbench": "^3.1",
                 "phpunit/phpunit": "^4.0|^5.0",
-                "satooshi/php-coveralls": "^0.6"
+                "satooshi/php-coveralls": "^1.0"
             },
             "suggest": {
                 "jenssegers/mongodb-sentry": "Add Sentry support to Laravel-MongoDB",
@@ -1245,7 +1245,7 @@
                 "mongo",
                 "mongodb"
             ],
-            "time": "2016-11-04T18:10:36+00:00"
+            "time": "2017-02-14T14:12:04+00:00"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -2166,16 +2166,16 @@
         },
         {
             "name": "mongodb/mongodb",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mongodb/mongo-php-library.git",
-                "reference": "302de20d8302183e1c70b335d81798cec5bcebd4"
+                "reference": "2f99156b29bc85582415d6a32bc31010d61a0a71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/mongodb/mongo-php-library/302de20d8302183e1c70b335d81798cec5bcebd4.zip",
-                "reference": "302de20d8302183e1c70b335d81798cec5bcebd4",
+                "url": "https://packagist.phpcomposer.com/files/mongodb/mongo-php-library/2f99156b29bc85582415d6a32bc31010d61a0a71.zip",
+                "reference": "2f99156b29bc85582415d6a32bc31010d61a0a71",
                 "shasum": ""
             },
             "require": {
@@ -2217,7 +2217,7 @@
                 "mongodb",
                 "persistence"
             ],
-            "time": "2016-12-05T20:02:14+00:00"
+            "time": "2017-02-16T18:35:09+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2497,16 +2497,16 @@
         },
         {
             "name": "overtrue/laravel-wechat",
-            "version": "3.1.4",
+            "version": "3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/laravel-wechat.git",
-                "reference": "2085508fc81f9a436da5e2de839a3ac3e24d26c7"
+                "reference": "90a2da151e794598006e94e0c7dd04eccbbe2b5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/overtrue/laravel-wechat/2085508fc81f9a436da5e2de839a3ac3e24d26c7.zip",
-                "reference": "2085508fc81f9a436da5e2de839a3ac3e24d26c7",
+                "url": "https://packagist.phpcomposer.com/files/overtrue/laravel-wechat/90a2da151e794598006e94e0c7dd04eccbbe2b5c.zip",
+                "reference": "90a2da151e794598006e94e0c7dd04eccbbe2b5c",
                 "shasum": ""
             },
             "require": {
@@ -2535,20 +2535,20 @@
                 "wechat",
                 "weixin"
             ],
-            "time": "2017-01-29T11:45:22+00:00"
+            "time": "2017-02-17T10:41:07+00:00"
         },
         {
             "name": "overtrue/socialite",
-            "version": "1.0.21",
+            "version": "1.0.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/socialite.git",
-                "reference": "28d852f188719c57bd8c3282338eb69cc7d6971e"
+                "reference": "e749ea09ab7b356a94c823804e95650efc616337"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/overtrue/socialite/28d852f188719c57bd8c3282338eb69cc7d6971e.zip",
-                "reference": "28d852f188719c57bd8c3282338eb69cc7d6971e",
+                "url": "https://packagist.phpcomposer.com/files/overtrue/socialite/e749ea09ab7b356a94c823804e95650efc616337.zip",
+                "reference": "e749ea09ab7b356a94c823804e95650efc616337",
                 "shasum": ""
             },
             "require": {
@@ -2585,7 +2585,7 @@
                 "wechat",
                 "weibo"
             ],
-            "time": "2017-01-19T04:17:07+00:00"
+            "time": "2017-02-13T09:01:56+00:00"
         },
         {
             "name": "overtrue/wechat",
@@ -2692,6 +2692,55 @@
                 "random"
             ],
             "time": "2016-11-07T23:38:38+00:00"
+        },
+        {
+            "name": "paypal/rest-api-sdk-php",
+            "version": "1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
+                "reference": "7e664f12be32b975575371e8ad3bc17b6b318851"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/paypal/PayPal-PHP-SDK/7e664f12be32b975575371e8ad3bc17b6b318851.zip",
+                "reference": "7e664f12be32b975575371e8ad3bc17b6b318851",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.0",
+                "psr/log": "^1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PayPal": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "PayPal",
+                    "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+                }
+            ],
+            "description": "PayPal's PHP SDK for REST APIs",
+            "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+            "keywords": [
+                "payments",
+                "paypal",
+                "rest",
+                "sdk"
+            ],
+            "time": "2016-12-14T21:59:21+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -3387,16 +3436,16 @@
         },
         {
             "name": "santigarcor/laratrust",
-            "version": "3.1.0",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/santigarcor/laratrust.git",
-                "reference": "39cdc1d217dda2d8a522997d16366c9a3eddb231"
+                "reference": "107c05c74e2d439a76b8ea8fb7b642abdff3b645"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/santigarcor/laratrust/39cdc1d217dda2d8a522997d16366c9a3eddb231.zip",
-                "reference": "39cdc1d217dda2d8a522997d16366c9a3eddb231",
+                "url": "https://packagist.phpcomposer.com/files/santigarcor/laratrust/107c05c74e2d439a76b8ea8fb7b642abdff3b645.zip",
+                "reference": "107c05c74e2d439a76b8ea8fb7b642abdff3b645",
                 "shasum": ""
             },
             "require": {
@@ -3409,8 +3458,8 @@
             "require-dev": {
                 "illuminate/database": "~5.0",
                 "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~4.1",
-                "squizlabs/php_codesniffer": "2.*"
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "^1.0"
             },
             "type": "library",
             "autoload": {
@@ -3462,7 +3511,7 @@
                 "rbac",
                 "roles"
             ],
-            "time": "2017-02-10T20:11:45+00:00"
+            "time": "2017-02-16T05:59:12+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3638,7 +3687,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.2.3",
+            "version": "v3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -6091,16 +6140,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.2.3",
+            "version": "v3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "e1718c6bf57e1efbb8793ada951584b2ab27775b"
+                "reference": "9724c684646fcb5387d579b4bfaa63ee0b0c64c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/yaml/e1718c6bf57e1efbb8793ada951584b2ab27775b.zip",
-                "reference": "e1718c6bf57e1efbb8793ada951584b2ab27775b",
+                "url": "https://packagist.phpcomposer.com/files/symfony/yaml/9724c684646fcb5387d579b4bfaa63ee0b0c64c8.zip",
+                "reference": "9724c684646fcb5387d579b4bfaa63ee0b0c64c8",
                 "shasum": ""
             },
             "require": {
@@ -6142,7 +6191,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-01-21T17:06:35+00:00"
+            "time": "2017-02-16T22:46:52+00:00"
         }
     ],
     "aliases": [],

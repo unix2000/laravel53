@@ -35,6 +35,11 @@ Route::get('/get',function(Request $req){
 	]);
 });
 
+Route::get('command', function () {	
+	/* php artisan serve */
+    \Artisan::call('serve');
+    dd("Done");
+});
 //micro restful
 Route::post('/api/post',function (Request $req){
     echo 'this is a restful post';
@@ -72,6 +77,8 @@ Route::get('/form/valid','FormController@valid');
 Route::post('validForm', 'FormController@validForm');
 Route::get('/form/validator','FormController@validator');
 Route::post('/form/validatorForm','FormController@validatorForm');
+Route::get('/form/autocomplete','FormController@autocomplete');
+Route::get('/form/dataAjax','FormController@dataAjax');
 Route::get('/test','TestController@index');
 Route::get('/test/de-token','TestController@detoken');
 Route::get('/di','DiController@index');
@@ -82,10 +89,21 @@ Route::get('/ui/dtgrid','UiController@dtGrid');
 Route::any('/ui/get-datas','UiController@getDatas');
 Route::get('/ui/ztree','UiController@ztree');
 Route::get('/ui/fancytree','UiController@fancytree');
+Route::get('/ui/semantic','UiController@semantic');
+Route::get('/ui/login','UiController@login');
+Route::get('/ui/tests','UiController@tests');
+Route::get('/ui/card','UiController@card');
 Route::get('/ajax-load-more','UiController@ajaxLoadMore');
 Route::get('/repo','RepositoryController@index');
 Route::get('/bui','BuiController@index');
+Route::get('/bui/grid','BuiController@grid');
+Route::any('/bui/gridJson','BuiController@gridJson');
+Route::get('/bui/bx','BuiController@bao');
+Route::get('/bui/tab','BuiController@tab');
+Route::get('/bui/tree','BuiController@tree');
 Route::get('/bui/tree-select','BuiController@treeSelect');
+Route::get('/bui/tree-select2','BuiController@treeSelect2');
+Route::get('/bui/many','BuiController@many');
 Route::get('/easyui/grid','EasyController@grid');
 Route::get('/easyui/data','EasyController@generateData');
 Route::get('/easyui/tree','EasyController@tree');
@@ -95,6 +113,7 @@ Route::get('/easyui/welcome','EasyController@welcome');
 Route::get('/easyui/panel','EasyController@panel');
 Route::get('/easyui/accordion','EasyController@accordion');
 Route::get('/easyui/bx','EasyController@bao');
+Route::get('/easyui/bao-a','EasyController@baoA');
 
 //中间件测试
 Route::any('one',['uses' => 'MiddleController@one']);
@@ -102,6 +121,11 @@ Route::group(['middleware' =>['TestMiddle']],function(){
     Route::any('two',['uses' => 'MiddleController@two']);
     Route::any('three',['uses' => 'MiddleController@three']);
 });
+
+//paypal
+Route::get('addmoney/paywithpaypal', array('as' => 'addmoney.paywithpaypal','uses' => 'AddMoneyController@payWithPaypal',));
+Route::post('addmoney/paypal', array('as' => 'addmoney.paypal','uses' => 'AddMoneyController@postPaymentWithpaypal',));
+Route::get('addmoney/paypal', array('as' => 'payment.status','uses' => 'AddMoneyController@getPaymentStatus',));
 
 Auth::routes();
 

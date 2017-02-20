@@ -119,4 +119,20 @@ class UiController extends Controller {
 		// dump($chart);
         return view('ui.index', ['chart' => $chart]);
 	}
+	public function semantic()
+	{
+		return view('ui.semantic');	
+	}
+	public function login()
+	{
+		return view('ui.login');	
+	}
+	public function tests()
+	{
+		return view('ui.tests');	
+	}
+	public function card()
+	{
+		return view('ui.card');	
+	}
 }

@@ -87,6 +87,12 @@ class EasyController extends Controller {
 		$json = json_encode($data);
 		return view('easyui.bx',compact('json'));	
 	}
+	public function baoA()
+	{
+		$data = $this->generateTree();
+		$json = json_encode($data);
+		return view('easyui.bao-a',compact('json'));	
+	}
 	public function tab()
 	{
 		return view('easyui.tab');	

@@ -8,6 +8,13 @@ body{
     border: none;
     background: #8666B8;
 }
+.footer {
+	position:fixed;
+	left:0;
+	right:0;
+	z-index:10000;
+	bottom:0;
+}
 table.floatThead-table {
     border-top: none;
     border-bottom: none;

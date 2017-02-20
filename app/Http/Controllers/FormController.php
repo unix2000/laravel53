@@ -54,4 +54,21 @@ class FormController extends Controller
             echo "csrf:".$csrf."<br />";
         }
     }
+	public function autocomplete()
+	{
+		return view('form.autocomplete');	
+	}
+	public function dataAjax(Request $request)
+    {
+    	$data = [];
+        if($request->has('q')){
+            $search = $request->q;
+            $data = \DB::table("items")
+				->select("id","name")
+				->where('name','LIKE',"%$search%")
+				->get();
+        }
+
+        return response()->json($data);
+    }
 }
