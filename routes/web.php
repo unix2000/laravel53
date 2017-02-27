@@ -93,6 +93,10 @@ Route::get('/ui/semantic','UiController@semantic');
 Route::get('/ui/login','UiController@login');
 Route::get('/ui/tests','UiController@tests');
 Route::get('/ui/card','UiController@card');
+Route::get('/ui/s','UiController@s');
+Route::get('/ui/dashboard','UiController@dashboard');
+Route::get('/ui/ajax','UiController@ajax');
+Route::get('/ui/bao','UiController@bao');
 Route::get('/ajax-load-more','UiController@ajaxLoadMore');
 Route::get('/repo','RepositoryController@index');
 Route::get('/bui','BuiController@index');
@@ -114,7 +118,7 @@ Route::get('/easyui/panel','EasyController@panel');
 Route::get('/easyui/accordion','EasyController@accordion');
 Route::get('/easyui/bx','EasyController@bao');
 Route::get('/easyui/bao-a','EasyController@baoA');
-
+Route::get('/easyui/loader','EasyController@loader');
 //中间件测试
 Route::any('one',['uses' => 'MiddleController@one']);
 Route::group(['middleware' =>['TestMiddle']],function(){
@@ -126,6 +130,9 @@ Route::group(['middleware' =>['TestMiddle']],function(){
 Route::get('addmoney/paywithpaypal', array('as' => 'addmoney.paywithpaypal','uses' => 'AddMoneyController@payWithPaypal',));
 Route::post('addmoney/paypal', array('as' => 'addmoney.paypal','uses' => 'AddMoneyController@postPaymentWithpaypal',));
 Route::get('addmoney/paypal', array('as' => 'payment.status','uses' => 'AddMoneyController@getPaymentStatus',));
+
+//gearman
+Route::get('/gearman/client','GearmanController@client');
 
 Auth::routes();
 

@@ -109,4 +109,8 @@ class EasyController extends Controller {
 	{
 		return view('easyui.accordion');	
 	}
+	public function loader()
+	{
+		return view('easyui.loader');	
+	}
 }

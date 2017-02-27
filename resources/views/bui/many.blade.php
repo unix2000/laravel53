@@ -25,7 +25,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="span21 offset3 control-row-auto">
+					<div class="span24 control-row-auto">
 						<div id="grid"></div>
 						<input type="hidden" name="infos">
 					</div>
@@ -49,6 +49,7 @@
 
 @section('script')
 <script src="{{ asset('static/bui/seed-min.js') }}"></script>
+<script src="{{ asset('static/common.js') }}"></script>
 <script type="text/javascript">
 BUI.use(['bui/grid','bui/data','bui/form','bui/overlay','bui/toolbar'],function (Grid,Data,Form,Overlay,Toolbar) {
 	//dialog grid 定义
@@ -108,9 +109,22 @@ BUI.use(['bui/grid','bui/data','bui/form','bui/overlay','bui/toolbar'],function 
 
 	var columns = [{title : '产品名称',dataIndex :'name',width:180},
 		{title : '产品单位',dataIndex :'unit',width:80},
-		{title : '产品价格',dataIndex :'price',width:80},
-		{title : '产品数量',dataIndex :'num',width:80,editor:{xtype:'number',rules:{required:true}}},
-		{title : '产品总价',dataIndex : 'sums',width:80,summary : true}
+		{title : '产品价格(元)',dataIndex :'price',width:100},
+		{
+			title : '产品数量',
+			dataIndex :'num',
+			width:100,
+			editor:{
+				xtype:'number',
+				rules:{
+					required:true
+				},
+				listeners : {
+					'change' : handlers
+				}
+			}
+		},
+		{title : '产品总价(元)',dataIndex : 'sums',width:100,summary : true}
 	],
 	//默认的数据
 	data = [],
@@ -126,6 +140,7 @@ BUI.use(['bui/grid','bui/data','bui/form','bui/overlay','bui/toolbar'],function 
 		success:function () {
 			//alert('确认');
 			//至少选择一个验证
+			//是否过滤掉重复
 			//根据需要生成相关json,与grid对象columns属性相对应
 			var arr = dialog_grid.getSelection();
 			//console.log(arr);
@@ -134,6 +149,10 @@ BUI.use(['bui/grid','bui/data','bui/form','bui/overlay','bui/toolbar'],function 
 				console.log(e);
 				var obj = Object();
 				obj.name = e.name;
+				//测试价格
+				obj.price = 12;
+				obj.unit = '个';
+				obj.sums = 0;
 				arr_new[i] = obj;
 			});
 			//console.log(arr_new);
@@ -169,6 +188,46 @@ BUI.use(['bui/grid','bui/data','bui/form','bui/overlay','bui/toolbar'],function 
 	})
 	
 	grid.render();
+	grid.on('cellclick',function(ev) {
+		var record = ev.record, //点击行的记录
+			field = ev.field, //点击对应列的dataIndex
+            target = $(ev.domTarget);
+		console.log(field);
+		console.log(target);
+		if (field=='num')
+		{
+			//alert(target.context);
+		}
+	});
+	grid.on('itemupdated',function(ev){
+		//根据数量和价格计算总价
+		//这个itemupdated事件更合理些
+		//alert('itemupdated');
+		var item = ev.item;
+		var ele = ev.element;
+		//console.log(ev.element);
+		//console.log(ev.item);
+		console.log(item);
+		var num = item.num,
+			price = item.price;
+		//var sum = num * price;
+		var sum = accMul(num,price);
+		item.sums = sum;
+		//不能如下写法,放到store update事件中去更新
+		//store.setValue(item,'sums',sum);
+		console.log(sum);
+	});
+
+	//更改数据时
+	store.on('update',function(ev){
+		var record = ev.record,
+			field = ev.field;
+		if(field == 'num'){
+			//alert();
+			store.setValue(record,'sums',record.sums);
+		}
+	});
+
 	function adds(){
 		//Grid.Plugins.DialogEditing插件必须用form接收
 		//var newData = {};
@@ -186,6 +245,15 @@ BUI.use(['bui/grid','bui/data','bui/form','bui/overlay','bui/toolbar'],function 
 		//var search = $('#search').val(); 
 		alert();
 		//ajax reload dialog_grid
+	}
+	function handlers() {
+		//alert();
+		//根据数量和价格计算总价
+		//var s = grid.getSelection();
+		//var s = grid.getSelected();
+		//console.log(s);
+		
+		//columns editor listeners 此方式放弃
 	}
 	var form = new Form.HForm({
 		srcNode : '#J_Form'

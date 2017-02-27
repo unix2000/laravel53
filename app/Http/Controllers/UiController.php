@@ -135,4 +135,21 @@ class UiController extends Controller {
 	{
 		return view('ui.card');	
 	}
+	public function s()
+	{
+		//superui
+		return view('s.index');
+	}
+	public function dashboard()
+	{
+		return view('s.dashboard');	
+	}
+	public function ajax()
+	{
+		return view('s.ajax');	
+	}
+	public function bao()
+	{
+		return view('s.bao');	
+	}
 }
