@@ -178,11 +178,13 @@ td,
 th {
   padding: 0;
 }
+/**
 * {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
+**/
 select {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -512,6 +514,9 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
 }
 a {
   color: #319dfc;

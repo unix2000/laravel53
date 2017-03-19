@@ -67,6 +67,7 @@
           grid = new Grid.Grid({
             render:'#grid',
             columns : columns,
+			height:360,
             loadMask: true, //加载数据时显示屏蔽层
 			store: store,
 			//plugins : [Grid.Plugins.RadioSelection]

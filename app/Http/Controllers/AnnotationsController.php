@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\Items;
+use App\Models\Types;
 class AnnotationsController extends Controller {
 //class AnnotationsController {
     /**
@@ -30,4 +32,12 @@ class AnnotationsController extends Controller {
     public function __construct() {
         $this->middleware('web');
     }
+	/**
+	* @Get("/types/{types}")
+	*/
+	public function show(Types $types)
+	{
+		//return $types->items->first(); //last()
+		return $types->items->chunk(10)->toArray();
+	}
 }

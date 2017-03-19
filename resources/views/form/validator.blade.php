@@ -1,6 +1,6 @@
 @extends('layouts.uikit')
 @section('css')
-<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 @endsection
 
 @section('content')

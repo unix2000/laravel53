@@ -152,4 +152,16 @@ class UiController extends Controller {
 	{
 		return view('s.bao');	
 	}
+	public function V3()
+	{
+		return view('ui.v3');
+	}
+	public function V4()
+	{
+		return view('ui.v4');
+	}
+	public function template()
+	{
+		return view('ui.v4-template');	
+	}
 }

@@ -334,7 +334,7 @@ var _Hello2 = _interopRequireDefault(_Hello);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.config.debug = true;
-new _vue2.default(_Hello2.default);
+//new Vue(Hello);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../views/Hello.vue":4}],4:[function(require,module,exports){
@@ -352,7 +352,7 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<h1>laravel5.3 Vue继承使用方法测试</h1>\n<h1>ES6写法 webpack打包 gulp</h1>\n<h1>详情请见laravel elixir文档</h1>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<h1>laravel5.3 Vue继承使用方法测试</h1>\n<h1>ES6写法 webpack打包 gulp等</h1>\n<h1>详情请见laravel elixir文档</h1>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install((typeof window !== "undefined" ? window['Vue'] : typeof global !== "undefined" ? global['Vue'] : null), true)

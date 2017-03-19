@@ -97,6 +97,9 @@ Route::get('/ui/s','UiController@s');
 Route::get('/ui/dashboard','UiController@dashboard');
 Route::get('/ui/ajax','UiController@ajax');
 Route::get('/ui/bao','UiController@bao');
+Route::get('/ui/v3','UiController@V3');
+Route::get('/ui/v4','UiController@V4');
+Route::get('/v4/template','UiController@template');
 Route::get('/ajax-load-more','UiController@ajaxLoadMore');
 Route::get('/repo','RepositoryController@index');
 Route::get('/bui','BuiController@index');
@@ -108,6 +111,8 @@ Route::get('/bui/tree','BuiController@tree');
 Route::get('/bui/tree-select','BuiController@treeSelect');
 Route::get('/bui/tree-select2','BuiController@treeSelect2');
 Route::get('/bui/many','BuiController@many');
+Route::get('/bui/remote','BuiController@remote');
+Route::get('/bui/remote-get','BuiController@remoteGet');
 Route::get('/easyui/grid','EasyController@grid');
 Route::get('/easyui/data','EasyController@generateData');
 Route::get('/easyui/tree','EasyController@tree');
@@ -126,6 +131,45 @@ Route::group(['middleware' =>['TestMiddle']],function(){
     Route::any('three',['uses' => 'MiddleController@three']);
 });
 
+//后台管理
+Route::group(
+	[ 
+		'middleware' => ['web'],
+		'namespace'  => 'Sys',
+		'prefix' => 'sys'
+	], function () {
+	Route::get('/dept', [
+		'as'   => 'dept.index',
+		'uses' => 'DeptController@index',
+	]);
+	Route::post('/dept', [
+		'as'   => 'dept.store',
+		'uses' => 'DeptController@store',
+	]);
+	Route::get('/dept/{id}', [
+		'as'   => 'dept.show',
+		'uses' => 'DeptController@show',
+	]);
+	Route::get('/dict', [
+		'as'   => 'dict',
+		'uses' => 'DictController@index',
+	]);
+});
+
+//人力资源
+Route::group(
+	[ 
+		'middleware' => ['web'],
+		'namespace'  => 'Human',
+		'prefix' => 'hr'
+	], function () {
+	Route::get('/employee', [
+		'as'   => 'employee',
+		'uses' => 'EmployeeController@index',
+	]);
+});
+Route::get('/loader','EasyController@loader');
+
 //paypal
 Route::get('addmoney/paywithpaypal', array('as' => 'addmoney.paywithpaypal','uses' => 'AddMoneyController@payWithPaypal',));
 Route::post('addmoney/paypal', array('as' => 'addmoney.paypal','uses' => 'AddMoneyController@postPaymentWithpaypal',));
@@ -137,7 +181,10 @@ Route::get('/gearman/client','GearmanController@client');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+//vue
 Route::get('/vue', 'VueController@index');
+Route::get('/vue/ajax', 'VueController@ajax');
+Route::get('vue/api', 'VueController@getData');
 Route::resource('resource','ResourceController');
 Route::group(['domain' => '{account}.laravel53.dev'],function(){
 	// echo 'domain route';

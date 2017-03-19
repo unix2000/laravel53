@@ -79,4 +79,16 @@ class BuiController extends Controller {
 	{
 		return view('bui.many');	
 	}
+	public function remote()
+	{
+		return view('bui.remote');	
+	}
+	public function remoteGet(Request $req)
+	{
+		if($req->ajax()){
+			$id = $req->input('a');
+			$data = Items::find($id)->toArray();
+			return response()->json($data);	
+		}	
+	}
 }

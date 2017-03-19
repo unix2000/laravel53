@@ -20,9 +20,33 @@
 			<li><a href="#">客户电话</a></li>
 			<li><a href="#">关于我们</a></li>
 			<li><a href="#">联系我们</a></li>
+			<li class="uk-parent" data-uk-dropdown>
+				<a href="">其他业务</a>
+				<div class="uk-dropdown uk-dropdown-navbar">
+					<ul class="uk-nav uk-nav-navbar">
+						<li><a href="#">业务1</a></li>
+						<li><a href="#">业务2</a></li>
+						<li><a href="#">业务3</a></li>
+					</ul>
+				</div>
+			</li>
 		</ul>
 		<a href="#tm-offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
 		<div class="uk-navbar-brand uk-navbar-center uk-visible-small"></div>
+		<div class="uk-navbar-flip">
+			<ul class="uk-navbar-nav">
+				<li class="uk-parent" data-uk-dropdown>
+					<a href="">xxx<i class="uk-icon-caret-down"></i></a>
+					<div class="uk-dropdown uk-dropdown-navbar">
+						<ul class="uk-nav uk-nav-navbar">
+							<li><a href="#">控制面板</a></li>
+							<li><a href="#">个人设置</a></li>
+							<li><a href="#">退出</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
 </nav>
 

@@ -6,6 +6,13 @@
 @endsection
 
 @section('content')
+	<div id="content" class="hide">
+		<h1>请与财务报销科目对接</h1>
+		<div class="span8">
+			<input type="text" id="show" name="show" data-rule="required">
+			<input type="hidden" id="hide" name="hide">
+		</div>
+	</div>
 	<h1>票据报销表</h1>
 	<div class="uk-grid">
 		<div class="uk-width-4-5 uk-container-center">
@@ -20,20 +27,54 @@
 @section('script')
 <script src="{{ asset('static/bui/seed-min.js') }}"></script>
 <script type="text/javascript">
-BUI.use(['bui/extensions/treepicker','bui/grid','bui/data','bui/picker','bui/tree'],function(TreePicker,Grid,Data,Picker,Tree){
+BUI.use(['bui/extensions/treepicker','bui/grid','bui/data','bui/picker','bui/tree','bui/overlay'],function(TreePicker,Grid,Data,Picker,Tree,Overlay){
 	var nodes = {!! $json !!},
 	tree = new Tree.TreeList({
 		nodes : nodes,
 		dirSelectable : false,//阻止树节点选中
 		showLine : false //显示连接线
 	});
- 
+	
+	//editor select仅渲染一次
 	var picker = new Picker.ListPicker({
-		width:150,  //指定宽度
-		children : [tree] //配置picker内的列表
+		width:150,
+		children : [tree]
 	});
+	/**
+	var picker_types = new TreePicker({
+        trigger : '#show',  
+        valueField : '#hide', 
+        width:150, 
+        children : [tree]
+	});
+	**/
+	var picker_types = new Picker.ListPicker({
+		trigger : '#show',  
+        valueField : '#hide',
+        width:150,
+        children : [tree]
+	});
+    picker_types.render();
+	
 	var columns = [
-		{title : '内容摘要',width:180,dataIndex :'zydes',editor : {xtype : 'select',select : {picker : picker},rules : {required : true}}},
+		{
+			width:50,
+			dataIndex: 'a',
+			editor:{
+				xtype: 'plain',
+				listeners : {
+					'click' : select_caiwu
+				}
+			},
+			renderer : function(){
+				return '<i class="icon-plus"></i>'
+			}
+		},
+		{
+			dataIndex: 'cw_id',
+			visible: false
+		},
+		{title : '内容摘要',width:180,dataIndex :'zydes'},
 		{title : '金额', dataIndex :'jsums',summary : true,editor : {xtype : 'number',rules : {required : true}}},
 		{title : '规格',dataIndex :'guige',editor : {xtype : 'text',rules : {required : true}}},
 		{title : '数量',dataIndex :'sums',editor : {xtype : 'number',rules : {required : true}}},
@@ -46,7 +87,9 @@ BUI.use(['bui/extensions/treepicker','bui/grid','bui/data','bui/picker','bui/tre
 	];
 	var data = [];
 	var Store = Data.Store;
-	var editing = new Grid.Plugins.CellEditing(),
+	var editing = new Grid.Plugins.CellEditing({
+		//triggerSelected : false //触发编辑的时候不选中行
+	}),
 		store = new Store({
 			data : data,
 			autoLoad:true
@@ -55,6 +98,7 @@ BUI.use(['bui/extensions/treepicker','bui/grid','bui/data','bui/picker','bui/tre
 		render:'#grid',
 		columns : columns,
 		width : 860,
+		height: 320,//默认为自适应高度
 		forceFit : true,
 		tbar:{
 			items : [{
@@ -72,7 +116,9 @@ BUI.use(['bui/extensions/treepicker','bui/grid','bui/data','bui/picker','bui/tre
 				}
 			}]
 		},
-		plugins : [editing,Grid.Plugins.CheckSelection,Grid.Plugins.Summary],
+		//如果记载CheckSelection插件,会有选中问题
+		plugins : [editing,Grid.Plugins.Summary,Grid.Plugins.AutoFit],
+		//plugins : [editing,Grid.Plugins.CheckSelection,Grid.Plugins.Summary],
 		//plugins : [editing],
 		store : store
 	});
@@ -90,7 +136,34 @@ BUI.use(['bui/extensions/treepicker','bui/grid','bui/data','bui/picker','bui/tre
 	function delRow(){
 		var selections = grid.getSelection();
 		store.remove(selections);
-	}          
+	}
+	//财务对接dialog
+	var s_dialog = new Overlay.Dialog({
+		title: '财务备注',
+		width:420,
+        height:280,
+		contentId:'content',
+		success: function(){
+			//todo
+			//清空select 
+			var id = picker_types.getSelectedValue();
+			var text = picker_types.getSelectedText();
+			var grid_select = grid.getSelection();
+			//console.log(grid_select);
+			store.setValue(grid_select[0],'cw_id',id);
+			store.setValue(grid_select[0],'zydes',text);
+			if (!id) {
+				return false;
+			}
+			this.close();
+			//console.log(grid_select);
+		}
+	});
+	function select_caiwu(){
+		$('#show').val('');
+		$('#hide').val('');
+		s_dialog.show();
+	}
 });
 </script>
 @endsection

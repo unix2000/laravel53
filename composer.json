@@ -30,7 +30,8 @@
         "laravelcollective/annotations": "^5.3.0",
         "santigarcor/laratrust": "3.1.*",
         "paypal/rest-api-sdk-php": "^1.11",
-        "symfony/event-dispatcher": "^3.2"
+        "symfony/event-dispatcher": "^3.2",
+        "baum/baum": "~1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

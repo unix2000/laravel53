@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Helper\DataViewer;
 
 /**
  * Class Items
@@ -13,12 +14,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Items extends Model
 {
     use SoftDeletes;
+	use DataViewer;
 
     public $table = 'items';
     
 
     protected $dates = ['deleted_at'];
-
+	
 
     public $fillable = [
         
@@ -41,6 +43,10 @@ class Items extends Model
     public static $rules = [
         
     ];
-
+	
+	public static $columns = [
+		'id','name','email','address',
+		//'types_id','registration_date','deleted_at'
+	];
     
 }

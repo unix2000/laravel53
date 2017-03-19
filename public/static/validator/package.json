@@ -1,6 +1,6 @@
 {
   "name": "nice-validator",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "author": "Jony Zhang <niceue@live.com>",
   "license": "MIT",
   "description": "Simple, smart and pleasant verification solution.",
@@ -21,7 +21,9 @@
   },
   "bugs": "https://github.com/niceue/nice-validator/issues",
   "scripts": {
-    "test": "gulp"
+    "test": "gulp",
+    "build": "gulp build",
+    "zip": "gulp zip"
   },
   "files": [
     "dist"

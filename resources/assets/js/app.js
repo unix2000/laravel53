@@ -4,7 +4,8 @@
  * include Vue and Vue Resource. This gives a great starting point for
  * building robust, powerful web applications using Vue and Laravel.
  */
-
+import Vue from 'vue';
+import DataViewer from './components/DataViewer.vue'
 require('./bootstrap');
 
 /**
@@ -17,7 +18,10 @@ Vue.component('example', require('./components/Example.vue'));
 Vue.component('send-code-field', require('./components/SendCodeField.vue'));
 
 const app = new Vue({
-    el: 'body'
+    el: 'body',
+		components: {
+			DataViewer
+		}
 });
 
 Vue.component(
